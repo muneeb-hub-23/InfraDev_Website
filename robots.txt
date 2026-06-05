@@ -1,0 +1,13 @@
+# robots.txt – InfraDev (https://infradev.pk)
+# Generated for production deployment
+
+User-agent: *
+Allow: /
+
+# Block access to IIS/server config files
+Disallow: /web.config
+Disallow: /.well-known/
+Disallow: /data/
+
+# Sitemap location
+Sitemap: https://infradev.pk/sitemap.xml

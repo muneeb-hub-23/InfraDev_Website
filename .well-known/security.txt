@@ -1,0 +1,9 @@
+# Security contact information for InfraDev
+# https://securitytxt.org/
+
+Contact: mailto:infradev.pk@gmail.com
+Contact: https://infradev.pk/#contact
+Preferred-Languages: en, ur
+Canonical: https://infradev.pk/.well-known/security.txt
+Policy: https://infradev.pk/#contact
+Expires: 2026-12-31T23:59:59.000Z

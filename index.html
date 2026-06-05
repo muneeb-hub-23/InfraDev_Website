@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="InfraDev – Complete IT Infrastructure Development. Servers, networking, software, cybersecurity, cloud, automation & power solutions. Taxila, Pakistan." />
+  <meta name="keywords" content="IT infrastructure, server installation, networking, cybersecurity, cloud solutions, software development, automation, UPS, data center, Pakistan" />
+  <meta name="author" content="InfraDev" />
+  <meta property="og:title" content="InfraDev – Building Smarter. Connecting Futures." />
+  <meta property="og:description" content="Full-service IT Infrastructure Development company in Taxila, Pakistan." />
+  <meta property="og:image" content="data/logo.png" />
+  <meta property="og:type" content="website" />
+  <meta name="robots" content="index, follow" />
+  <title>InfraDev – Building Smarter. Connecting Futures.</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:    { DEFAULT: '#0d1b2a', 800: '#0a1520', 700: '#0d1b2a', 600: '#112236', 500: '#1a3a5c' },
+            brand:   { DEFAULT: '#1e6fc8', light: '#4da6ff', dark: '#1558a0' },
+            gold:    { DEFAULT: '#c8922a', light: '#e0b255', dark: '#a07020' },
+          },
+          fontFamily: {
+            sans:    ['Inter', 'sans-serif'],
+            display: ['Rajdhani', 'sans-serif'],
+          },
+          backgroundImage: {
+            'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e6fc8' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+          },
+          animation: {
+            'fade-up':     'fadeUp 0.7s ease forwards',
+            'fade-in':     'fadeIn 0.6s ease forwards',
+            'pulse-slow':  'pulse 3s cubic-bezier(0.4,0,0.6,1) infinite',
+            'float':       'float 6s ease-in-out infinite',
+            'glow':        'glow 2s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            fadeUp:  { '0%': { opacity: 0, transform: 'translateY(30px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+            fadeIn:  { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
+            float:   { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-12px)' } },
+            glow:    { '0%': { boxShadow: '0 0 20px rgba(30,111,200,0.3)' }, '100%': { boxShadow: '0 0 40px rgba(30,111,200,0.7)' } },
+          },
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      --navy:      #0d1b2a;
+      --navy-dark: #070f18;
+      --brand:     #1e6fc8;
+      --brand-l:   #4da6ff;
+      --gold:      #c8922a;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--navy-dark); color: #e2e8f0; }
+    ::selection { background: var(--brand); color: #fff; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--brand); border-radius: 3px; }
+
+    /* Animated gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #4da6ff 0%, #1e6fc8 50%, #c8922a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Hero circuit background */
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(30,111,200,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 90% 50%, rgba(200,146,42,0.08) 0%, transparent 60%),
+        linear-gradient(180deg, #070f18 0%, #0d1b2a 60%, #070f18 100%);
+    }
+
+    /* Glass card */
+    .glass {
+      background: rgba(13,27,42,0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(30,111,200,0.15);
+    }
+    .glass-hover {
+      transition: all 0.3s ease;
+    }
+    .glass-hover:hover {
+      background: rgba(26,58,92,0.5);
+      border-color: rgba(30,111,200,0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(30,111,200,0.15);
+    }
+
+    /* Service card icon glow */
+    .icon-glow {
+      box-shadow: 0 0 20px rgba(30,111,200,0.35);
+    }
+    .icon-glow-gold {
+      box-shadow: 0 0 20px rgba(200,146,42,0.35);
+    }
+
+    /* Nav link underline */
+    .nav-link::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: linear-gradient(90deg, #1e6fc8, #4da6ff);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .nav-link:hover::after { transform: scaleX(1); }
+
+    /* Stat counter */
+    .stat-card {
+      background: linear-gradient(135deg, rgba(30,111,200,0.12) 0%, rgba(13,27,42,0.8) 100%);
+      border: 1px solid rgba(30,111,200,0.2);
+    }
+
+    /* Section divider */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(30,111,200,0.4), transparent);
+    }
+
+    /* Timeline */
+    .timeline-dot::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--brand);
+      box-shadow: 0 0 10px rgba(30,111,200,0.8);
+    }
+
+    /* Particle canvas */
+    #particles { position: absolute; inset: 0; pointer-events: none; }
+
+    /* Mobile menu */
+    #mobile-menu { transition: max-height 0.3s ease, opacity 0.3s ease; max-height: 0; opacity: 0; overflow: hidden; }
+    #mobile-menu.open { max-height: 500px; opacity: 1; }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Button glow */
+    .btn-primary {
+      background: linear-gradient(135deg, #1e6fc8, #1558a0);
+      box-shadow: 0 4px 20px rgba(30,111,200,0.4);
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #4da6ff, #1e6fc8);
+      box-shadow: 0 8px 30px rgba(30,111,200,0.6);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 1.5px solid #1e6fc8;
+      color: #4da6ff;
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      background: rgba(30,111,200,0.15);
+      border-color: #4da6ff;
+      transform: translateY(-2px);
+    }
+
+    /* Badge */
+    .badge {
+      background: linear-gradient(135deg, rgba(30,111,200,0.2), rgba(30,111,200,0.05));
+      border: 1px solid rgba(30,111,200,0.3);
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <img src="data/logo.png" alt="InfraDev Logo" class="h-10 lg:h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="#home"     class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors">Home</a>
+          <a href="#about"    class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors">About</a>
+          <a href="#services" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors">Services</a>
+          <a href="#why-us"   class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors">Why Us</a>
+          <a href="#contact"  class="nav-link text-sm font-medium text-slate-300 hover:text-white transition-colors">Contact</a>
+        </div>
+
+        <!-- CTA -->
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="tel:+923230980043" class="flex items-center gap-2 text-sm text-brand-light hover:text-white transition-colors">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+            <span>+92 323 0980043</span>
+          </a>
+          <a href="#contact" class="btn-primary px-5 py-2 rounded-lg text-sm font-semibold text-white">Get a Quote</a>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button id="menu-btn" class="lg:hidden text-slate-300 hover:text-white transition-colors p-2" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="lg:hidden glass rounded-xl mb-3">
+        <div class="flex flex-col p-4 gap-1">
+          <a href="#home"     class="px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Home</a>
+          <a href="#about"    class="px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">About</a>
+          <a href="#services" class="px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Services</a>
+          <a href="#why-us"   class="px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Why Us</a>
+          <a href="#contact"  class="px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Contact</a>
+          <div class="pt-2 border-t border-white/10 mt-1">
+            <a href="#contact" class="btn-primary block text-center px-4 py-2.5 rounded-lg text-sm font-semibold text-white">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section id="home" class="relative min-h-screen hero-bg flex items-center overflow-hidden pt-20">
+    <canvas id="particles"></canvas>
+
+    <!-- Grid overlay -->
+    <div class="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none"></div>
+
+    <!-- Glowing orbs -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-brand/10 blur-3xl pointer-events-none animate-pulse-slow"></div>
+    <div class="absolute bottom-1/3 right-1/4 w-64 h-64 rounded-full bg-gold/8 blur-3xl pointer-events-none animate-pulse-slow" style="animation-delay:1.5s"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Text -->
+        <div class="space-y-8">
+          <div class="badge inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-brand-light uppercase tracking-widest reveal">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-light animate-pulse"></span>
+            Complete IT Infrastructure Solutions
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight reveal" style="transition-delay:0.1s">
+            <span class="text-white">Building </span><span class="gradient-text">Smarter.</span><br/>
+            <span class="text-white">Connecting </span><span class="gradient-text">Futures.</span>
+          </h1>
+
+          <p class="text-slate-400 text-lg lg:text-xl leading-relaxed max-w-xl reveal" style="transition-delay:0.2s">
+            InfraDev is your end-to-end technology partner — from servers and networking to cybersecurity, cloud, and smart automation. We design, deploy, and manage infrastructure that powers your business growth.
+          </p>
+
+          <div class="flex flex-wrap gap-4 reveal" style="transition-delay:0.3s">
+            <a href="#services" class="btn-primary flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white">
+              <i data-lucide="layers" class="w-5 h-5"></i> Explore Services
+            </a>
+            <a href="#contact" class="btn-outline flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold">
+              <i data-lucide="mail" class="w-5 h-5"></i> Contact Us
+            </a>
+          </div>
+
+          <!-- Quick stats row -->
+          <div class="flex flex-wrap gap-6 pt-4 reveal" style="transition-delay:0.4s">
+            <div class="text-center">
+              <div class="text-3xl font-black text-white counter" data-target="150">0</div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Projects Done</div>
+            </div>
+            <div class="w-px bg-white/10"></div>
+            <div class="text-center">
+              <div class="text-3xl font-black text-white counter" data-target="80">0</div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Happy Clients</div>
+            </div>
+            <div class="w-px bg-white/10"></div>
+            <div class="text-center">
+              <div class="text-3xl font-black text-white">11</div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Services</div>
+            </div>
+            <div class="w-px bg-white/10"></div>
+            <div class="text-center">
+              <div class="text-3xl font-black text-white">24/7</div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Support</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating logo / visual -->
+        <div class="flex justify-center lg:justify-end reveal" style="transition-delay:0.25s">
+          <div class="relative animate-float">
+            <!-- Outer glow ring -->
+            <div class="absolute inset-0 rounded-full bg-brand/20 blur-2xl scale-110 animate-pulse-slow"></div>
+            <!-- Glass card -->
+            <div class="relative glass rounded-3xl p-10 lg:p-12 flex flex-col items-center gap-6 animate-glow">
+              <img src="data/logo.png" alt="InfraDev" class="w-52 lg:w-64 xl:w-72 drop-shadow-2xl" />
+              <!-- Service icons row -->
+              <div class="flex gap-4 mt-2">
+                <div class="flex flex-col items-center gap-1.5">
+                  <div class="w-10 h-10 rounded-xl bg-brand/20 flex items-center justify-center icon-glow">
+                    <i data-lucide="server" class="w-5 h-5 text-brand-light"></i>
+                  </div>
+                  <span class="text-xs text-slate-500">Servers</span>
+                </div>
+                <div class="flex flex-col items-center gap-1.5">
+                  <div class="w-10 h-10 rounded-xl bg-brand/20 flex items-center justify-center icon-glow">
+                    <i data-lucide="network" class="w-5 h-5 text-brand-light"></i>
+                  </div>
+                  <span class="text-xs text-slate-500">Network</span>
+                </div>
+                <div class="flex flex-col items-center gap-1.5">
+                  <div class="w-10 h-10 rounded-xl bg-brand/20 flex items-center justify-center icon-glow">
+                    <i data-lucide="shield-check" class="w-5 h-5 text-brand-light"></i>
+                  </div>
+                  <span class="text-xs text-slate-500">Security</span>
+                </div>
+                <div class="flex flex-col items-center gap-1.5">
+                  <div class="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center icon-glow-gold">
+                    <i data-lucide="zap" class="w-5 h-5 text-gold"></i>
+                  </div>
+                  <span class="text-xs text-slate-500">Power</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-600 animate-bounce">
+      <span class="text-xs uppercase tracking-widest">Scroll</span>
+      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MARQUEE / TECH STRIP
+  ============================================================ -->
+  <div class="py-5 border-y border-white/5 overflow-hidden" style="background:rgba(7,15,24,0.8)">
+    <div class="flex gap-16 animate-[marquee_30s_linear_infinite] whitespace-nowrap w-max">
+      <span class="text-slate-600 text-sm uppercase tracking-widest font-semibold flex items-center gap-3"><i data-lucide="server" class="w-4 h-4 text-brand/50"></i> Server Infrastructure</span>
+      <span class="text-slate-600 text-sm uppercase tracking-widest font-semibold flex items-center gap-3"><i data-lucide="network" class="w-4 h-4 text-brand/50"></i> Enterprise Networking</span>
+      <span class="text-slate-600 text-sm uppercase tracking-widest font-semibold flex items-center gap-3"><i data-lucide="code-2" class="w-4 h-4 text-brand/50"></i> Software Development</span>
+      <span class="text-slate-600 text-sm uppercase tracking-widest font-semibold flex items-center gap-3"><i data-lucide="shield-check" class="w-4 h-4 text-brand/50"></i> Cybersecurity</span>
+      <span class="text-slate-600 text-sm uppercase tracking-widest font-semibold flex items-center gap-3"><i data-lucide="cloud" class="w-4 h-4 text-brand/50"></i> Cloud & Virtualization</span>
+      <span class="text-slate-600 text-sm uppercase tracking-widest font-semibold flex items-center gap-3"><i data-lucide="home" class="w-4 h-4 text-brand/50"></i> Home & Office Automation</span>
+      <span class="text-slate-600 text-sm uppercase tracking-widest font-semibold flex items-center gap-3"><i data-lucide="database" class="w-4 h-4 text-brand/50"></i> Data Center Solutions</span>
+      <span class="text-slate-600 text-sm uppercase tracking-widest font-semibold flex items-center gap-3"><i data-lucide="zap" class="w-4 h-4 text-gold/50"></i> UPS & Power Solutions</span>
+      <!-- repeat for seamless loop -->
+      <span class="text-slate-600 text-sm uppercase tracking-widest font-semibold flex items-center gap-3"><i data-lucide="server" class="w-4 h-4 text-brand/50"></i> Server Infrastructure</span>
+      <span class="text-slate-600 text-sm uppercase tracking-widest font-semibold flex items-center gap-3"><i data-lucide="network" class="w-4 h-4 text-brand/50"></i> Enterprise Networking</span>
+      <span class="text-slate-600 text-sm uppercase tracking-widest font-semibold flex items-center gap-3"><i data-lucide="code-2" class="w-4 h-4 text-brand/50"></i> Software Development</span>
+      <span class="text-slate-600 text-sm uppercase tracking-widest font-semibold flex items-center gap-3"><i data-lucide="shield-check" class="w-4 h-4 text-brand/50"></i> Cybersecurity</span>
+      <span class="text-slate-600 text-sm uppercase tracking-widest font-semibold flex items-center gap-3"><i data-lucide="cloud" class="w-4 h-4 text-brand/50"></i> Cloud & Virtualization</span>
+      <span class="text-slate-600 text-sm uppercase tracking-widest font-semibold flex items-center gap-3"><i data-lucide="home" class="w-4 h-4 text-brand/50"></i> Home & Office Automation</span>
+    </div>
+  </div>
+  <style>@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }</style>
+
+  <!-- ============================================================
+       ABOUT
+  ============================================================ -->
+  <section id="about" class="py-24 lg:py-32" style="background: linear-gradient(180deg, #070f18 0%, #0d1b2a 100%);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section header -->
+      <div class="text-center mb-16 reveal">
+        <div class="badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold text-brand-light uppercase tracking-widest mb-4">
+          <i data-lucide="info" class="w-3.5 h-3.5"></i> About InfraDev
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
+          Your Technology <span class="gradient-text">Infrastructure Partner</span>
+        </h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Image / visual side -->
+        <div class="relative reveal">
+          <div class="relative rounded-2xl overflow-hidden">
+            <!-- Decorative background card -->
+            <div class="glass rounded-2xl p-8 lg:p-10">
+              <div class="flex items-center gap-4 mb-6">
+                <img src="data/logo.png" alt="InfraDev" class="h-14 w-auto" />
+                <div>
+                  <div class="text-lg font-bold text-white font-display">InfraDev</div>
+                  <div class="text-xs text-slate-500 uppercase tracking-widest">Complete IT Infrastructure</div>
+                </div>
+              </div>
+              <!-- Tagline -->
+              <div class="bg-brand/10 border border-brand/20 rounded-xl p-4 mb-6">
+                <p class="text-brand-light font-semibold text-lg italic">"Building Smarter. Connecting Futures."</p>
+              </div>
+              <!-- Feature list -->
+              <ul class="space-y-3">
+                <li class="flex items-center gap-3 text-slate-300 text-sm">
+                  <div class="w-5 h-5 rounded-full bg-brand/20 flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="check" class="w-3 h-3 text-brand-light"></i>
+                  </div>
+                  End-to-end IT infrastructure design & deployment
+                </li>
+                <li class="flex items-center gap-3 text-slate-300 text-sm">
+                  <div class="w-5 h-5 rounded-full bg-brand/20 flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="check" class="w-3 h-3 text-brand-light"></i>
+                  </div>
+                  Scalable, secure & future-ready environments
+                </li>
+                <li class="flex items-center gap-3 text-slate-300 text-sm">
+                  <div class="w-5 h-5 rounded-full bg-brand/20 flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="check" class="w-3 h-3 text-brand-light"></i>
+                  </div>
+                  Solutions tailored to each client's unique needs
+                </li>
+                <li class="flex items-center gap-3 text-slate-300 text-sm">
+                  <div class="w-5 h-5 rounded-full bg-brand/20 flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="check" class="w-3 h-3 text-brand-light"></i>
+                  </div>
+                  From single server to enterprise data center
+                </li>
+                <li class="flex items-center gap-3 text-slate-300 text-sm">
+                  <div class="w-5 h-5 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="check" class="w-3 h-3 text-gold"></i>
+                  </div>
+                  Based in Taxila, Pakistan – serving nationwide
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Floating stat cards -->
+          <div class="absolute -bottom-4 -right-4 stat-card rounded-xl px-5 py-3 hidden lg:block">
+            <div class="text-2xl font-black text-white">5+ yrs</div>
+            <div class="text-xs text-slate-500">Industry Experience</div>
+          </div>
+        </div>
+
+        <!-- Text side -->
+        <div class="space-y-6 reveal" style="transition-delay:0.15s">
+          <h3 class="text-2xl lg:text-3xl font-bold text-white leading-snug">
+            We design, deploy & manage <span class="text-brand-light">modern technology solutions</span> for businesses of all sizes
+          </h3>
+          <p class="text-slate-400 leading-relaxed">
+            InfraDev is a full-service IT Infrastructure Development company specializing in the design, deployment, and management of modern technology solutions for businesses, organizations, and smart environments.
+          </p>
+          <p class="text-slate-400 leading-relaxed">
+            We provide end-to-end services covering servers, software development, networking, cybersecurity, automation, and power infrastructure — helping organizations build scalable, secure, and future-ready IT environments that improve productivity, connectivity, and business performance.
+          </p>
+
+          <!-- Core pillars -->
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="glass glass-hover rounded-xl p-4">
+              <div class="w-9 h-9 rounded-lg bg-brand/20 flex items-center justify-center mb-3 icon-glow">
+                <i data-lucide="shield" class="w-5 h-5 text-brand-light"></i>
+              </div>
+              <div class="text-sm font-semibold text-white mb-1">Secure by Design</div>
+              <div class="text-xs text-slate-500">Security baked into every solution</div>
+            </div>
+            <div class="glass glass-hover rounded-xl p-4">
+              <div class="w-9 h-9 rounded-lg bg-brand/20 flex items-center justify-center mb-3 icon-glow">
+                <i data-lucide="trending-up" class="w-5 h-5 text-brand-light"></i>
+              </div>
+              <div class="text-sm font-semibold text-white mb-1">Scalable</div>
+              <div class="text-xs text-slate-500">Grows with your business</div>
+            </div>
+            <div class="glass glass-hover rounded-xl p-4">
+              <div class="w-9 h-9 rounded-lg bg-brand/20 flex items-center justify-center mb-3 icon-glow">
+                <i data-lucide="cpu" class="w-5 h-5 text-brand-light"></i>
+              </div>
+              <div class="text-sm font-semibold text-white mb-1">Future-Ready</div>
+              <div class="text-xs text-slate-500">Built for tomorrow's demands</div>
+            </div>
+            <div class="glass glass-hover rounded-xl p-4">
+              <div class="w-9 h-9 rounded-lg bg-gold/20 flex items-center justify-center mb-3 icon-glow-gold">
+                <i data-lucide="headphones" class="w-5 h-5 text-gold"></i>
+              </div>
+              <div class="text-sm font-semibold text-white mb-1">24/7 Support</div>
+              <div class="text-xs text-slate-500">Always here when you need us</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  <!-- ============================================================
+       SERVICES
+  ============================================================ -->
+  <section id="services" class="py-24 lg:py-32" style="background: linear-gradient(180deg, #0d1b2a 0%, #070f18 100%);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="text-center mb-16 reveal">
+        <div class="badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold text-brand-light uppercase tracking-widest mb-4">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i> What We Do
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
+          Our <span class="gradient-text">Services</span>
+        </h2>
+        <p class="text-slate-400 max-w-2xl mx-auto text-lg">
+          Comprehensive IT infrastructure services — from single installations to complete enterprise environments.
+        </p>
+      </div>
+
+      <!-- Services grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- 1 -->
+        <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default">
+          <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center mb-5 icon-glow group-hover:scale-110 transition-transform">
+            <i data-lucide="layout-panel-top" class="w-6 h-6 text-brand-light"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">IT Infrastructure Design & Development</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Complete planning, architecture, and deployment of IT environments tailored to your business scale and goals.</p>
+          <div class="mt-4 flex items-center gap-1 text-brand-light text-xs font-semibold group-hover:gap-2 transition-all">
+            Learn more <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default" style="transition-delay:0.05s">
+          <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center mb-5 icon-glow group-hover:scale-110 transition-transform">
+            <i data-lucide="server" class="w-6 h-6 text-brand-light"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Server Installation & Management</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Physical and virtual server setup, configuration, performance tuning, and ongoing management for maximum uptime.</p>
+          <div class="mt-4 flex items-center gap-1 text-brand-light text-xs font-semibold group-hover:gap-2 transition-all">
+            Learn more <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default" style="transition-delay:0.1s">
+          <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center mb-5 icon-glow group-hover:scale-110 transition-transform">
+            <i data-lucide="code-2" class="w-6 h-6 text-brand-light"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Software Development & Deployment</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Custom software solutions, web & desktop applications, and managed CI/CD pipelines from development to production.</p>
+          <div class="mt-4 flex items-center gap-1 text-brand-light text-xs font-semibold group-hover:gap-2 transition-all">
+            Learn more <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default" style="transition-delay:0.05s">
+          <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center mb-5 icon-glow group-hover:scale-110 transition-transform">
+            <i data-lucide="network" class="w-6 h-6 text-brand-light"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Enterprise Networking Solutions</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">LAN, WAN, wireless, VPN, and SD-WAN design and deployment for high-performance connectivity across your organization.</p>
+          <div class="mt-4 flex items-center gap-1 text-brand-light text-xs font-semibold group-hover:gap-2 transition-all">
+            Learn more <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default" style="transition-delay:0.1s">
+          <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center mb-5 icon-glow group-hover:scale-110 transition-transform">
+            <i data-lucide="home" class="w-6 h-6 text-brand-light"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Home & Office Automation</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Smart building solutions — automated lighting, HVAC, access control, CCTV, and IoT integration for homes and enterprises.</p>
+          <div class="mt-4 flex items-center gap-1 text-brand-light text-xs font-semibold group-hover:gap-2 transition-all">
+            Learn more <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default" style="transition-delay:0.15s">
+          <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center mb-5 icon-glow group-hover:scale-110 transition-transform">
+            <i data-lucide="cloud" class="w-6 h-6 text-brand-light"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Cloud & Virtualization Services</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Private, public, and hybrid cloud setup, migration, and management. VMware, Hyper-V, and container-based environments.</p>
+          <div class="mt-4 flex items-center gap-1 text-brand-light text-xs font-semibold group-hover:gap-2 transition-all">
+            Learn more <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default">
+          <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center mb-5 icon-glow group-hover:scale-110 transition-transform">
+            <i data-lucide="shield-check" class="w-6 h-6 text-brand-light"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Cybersecurity & Data Protection</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Firewalls, endpoint security, vulnerability assessments, compliance, and 24/7 threat monitoring to keep your data safe.</p>
+          <div class="mt-4 flex items-center gap-1 text-brand-light text-xs font-semibold group-hover:gap-2 transition-all">
+            Learn more <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default" style="transition-delay:0.05s">
+          <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center mb-5 icon-glow group-hover:scale-110 transition-transform">
+            <i data-lucide="database" class="w-6 h-6 text-brand-light"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Data Center Solutions</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Design and build of scalable data centers: structured cabling, rack systems, cooling, power distribution, and monitoring.</p>
+          <div class="mt-4 flex items-center gap-1 text-brand-light text-xs font-semibold group-hover:gap-2 transition-all">
+            Learn more <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default" style="transition-delay:0.1s">
+          <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center mb-5 icon-glow group-hover:scale-110 transition-transform">
+            <i data-lucide="hard-drive" class="w-6 h-6 text-brand-light"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Backup & Disaster Recovery</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Automated backup strategies, off-site replication, and tested disaster recovery plans to ensure business continuity.</p>
+          <div class="mt-4 flex items-center gap-1 text-brand-light text-xs font-semibold group-hover:gap-2 transition-all">
+            Learn more <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default" style="transition-delay:0.05s">
+          <div class="w-12 h-12 rounded-xl bg-gold/20 flex items-center justify-center mb-5 icon-glow-gold group-hover:scale-110 transition-transform">
+            <i data-lucide="zap" class="w-6 h-6 text-gold"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">UPS & Power Infrastructure</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">UPS systems, power conditioning, surge protection, and energy management ensuring zero-downtime power for critical systems.</p>
+          <div class="mt-4 flex items-center gap-1 text-gold text-xs font-semibold group-hover:gap-2 transition-all">
+            Learn more <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="glass glass-hover rounded-2xl p-7 reveal group cursor-default" style="transition-delay:0.1s">
+          <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center mb-5 icon-glow group-hover:scale-110 transition-transform">
+            <i data-lucide="headphones" class="w-6 h-6 text-brand-light"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Technical Support & IT Consultancy</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">On-site and remote support, IT strategy consulting, technology roadmaps, and managed service agreements.</p>
+          <div class="mt-4 flex items-center gap-1 text-brand-light text-xs font-semibold group-hover:gap-2 transition-all">
+            Learn more <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- CTA card -->
+        <div class="glass rounded-2xl p-7 reveal flex flex-col justify-center items-center text-center" style="transition-delay:0.15s; background: linear-gradient(135deg, rgba(30,111,200,0.15) 0%, rgba(13,27,42,0.6) 100%); border-color: rgba(30,111,200,0.3);">
+          <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center mb-4 icon-glow">
+            <i data-lucide="plus-circle" class="w-6 h-6 text-brand-light"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Need a Custom Solution?</h3>
+          <p class="text-slate-400 text-sm mb-5">Tell us your requirements and we'll engineer the perfect infrastructure for you.</p>
+          <a href="#contact" class="btn-primary px-6 py-2.5 rounded-xl text-sm font-semibold text-white">Get in Touch</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY US
+  ============================================================ -->
+  <section id="why-us" class="py-24 lg:py-32" style="background: linear-gradient(180deg, #070f18 0%, #0d1b2a 100%);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-16 reveal">
+        <div class="badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold text-brand-light uppercase tracking-widest mb-4">
+          <i data-lucide="star" class="w-3.5 h-3.5"></i> Why Choose InfraDev
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
+          The InfraDev <span class="gradient-text">Advantage</span>
+        </h2>
+        <p class="text-slate-400 max-w-2xl mx-auto text-lg">
+          We don't just install technology — we build the backbone of your digital future.
+        </p>
+      </div>
+
+      <!-- Stats row -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16 reveal">
+        <div class="stat-card rounded-2xl p-6 text-center">
+          <div class="text-4xl lg:text-5xl font-black text-white counter" data-target="150">0</div>
+          <div class="text-xs text-slate-500 uppercase tracking-wider mt-2">Projects Completed</div>
+        </div>
+        <div class="stat-card rounded-2xl p-6 text-center">
+          <div class="text-4xl lg:text-5xl font-black text-white counter" data-target="80">0</div>
+          <div class="text-xs text-slate-500 uppercase tracking-wider mt-2">Satisfied Clients</div>
+        </div>
+        <div class="stat-card rounded-2xl p-6 text-center">
+          <div class="text-4xl lg:text-5xl font-black text-white">11</div>
+          <div class="text-xs text-slate-500 uppercase tracking-wider mt-2">Service Areas</div>
+        </div>
+        <div class="stat-card rounded-2xl p-6 text-center">
+          <div class="text-4xl lg:text-5xl font-black text-white">99.9%</div>
+          <div class="text-xs text-slate-500 uppercase tracking-wider mt-2">Uptime SLA</div>
+        </div>
+      </div>
+
+      <!-- Advantage cards -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="glass glass-hover rounded-2xl p-7 reveal">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl bg-brand/20 flex items-center justify-center flex-shrink-0 icon-glow">
+              <i data-lucide="puzzle" class="w-5 h-5 text-brand-light"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white mb-2">End-to-End Expertise</h4>
+              <p class="text-slate-400 text-sm leading-relaxed">One partner for your entire IT stack — infrastructure, software, security, and power — eliminating vendor coordination headaches.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass glass-hover rounded-2xl p-7 reveal" style="transition-delay:0.07s">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl bg-brand/20 flex items-center justify-center flex-shrink-0 icon-glow">
+              <i data-lucide="settings-2" class="w-5 h-5 text-brand-light"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white mb-2">Tailored Solutions</h4>
+              <p class="text-slate-400 text-sm leading-relaxed">No cookie-cutter installs. Every architecture is designed around your specific business requirements, budget, and growth plans.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass glass-hover rounded-2xl p-7 reveal" style="transition-delay:0.14s">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl bg-brand/20 flex items-center justify-center flex-shrink-0 icon-glow">
+              <i data-lucide="shield" class="w-5 h-5 text-brand-light"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white mb-2">Security-First Approach</h4>
+              <p class="text-slate-400 text-sm leading-relaxed">Security is never an afterthought. Every deployment follows industry best practices and compliance standards from day one.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass glass-hover rounded-2xl p-7 reveal" style="transition-delay:0.07s">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl bg-brand/20 flex items-center justify-center flex-shrink-0 icon-glow">
+              <i data-lucide="users" class="w-5 h-5 text-brand-light"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white mb-2">Certified Professionals</h4>
+              <p class="text-slate-400 text-sm leading-relaxed">Our team holds industry certifications and stays current with evolving technology landscapes to deliver modern, reliable solutions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass glass-hover rounded-2xl p-7 reveal" style="transition-delay:0.14s">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl bg-brand/20 flex items-center justify-center flex-shrink-0 icon-glow">
+              <i data-lucide="clock" class="w-5 h-5 text-brand-light"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white mb-2">24/7 Support</h4>
+              <p class="text-slate-400 text-sm leading-relaxed">Round-the-clock monitoring and support. When something needs attention, our team responds fast — because your uptime is critical.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass glass-hover rounded-2xl p-7 reveal" style="transition-delay:0.21s">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-0 icon-glow-gold">
+              <i data-lucide="trending-up" class="w-5 h-5 text-gold"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white mb-2">Scalable Architecture</h4>
+              <p class="text-slate-400 text-sm leading-relaxed">We build infrastructure that grows with you — from a single-office setup to a nationwide multi-branch enterprise network.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROCESS
+  ============================================================ -->
+  <section class="py-24 lg:py-32" style="background: linear-gradient(180deg, #0d1b2a 0%, #070f18 100%);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-16 reveal">
+        <div class="badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold text-brand-light uppercase tracking-widest mb-4">
+          <i data-lucide="workflow" class="w-3.5 h-3.5"></i> How We Work
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
+          Our <span class="gradient-text">Process</span>
+        </h2>
+      </div>
+
+      <div class="relative">
+        <!-- Connector line (desktop) -->
+        <div class="hidden lg:block absolute top-14 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/30 to-transparent"></div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="glass glass-hover rounded-2xl p-7 text-center reveal relative">
+            <div class="w-14 h-14 rounded-2xl bg-brand/20 border border-brand/30 flex items-center justify-center mx-auto mb-4 icon-glow">
+              <i data-lucide="clipboard-list" class="w-7 h-7 text-brand-light"></i>
+            </div>
+            <div class="text-4xl font-black text-brand/20 mb-2 font-display">01</div>
+            <h4 class="font-bold text-white mb-2">Discover</h4>
+            <p class="text-slate-400 text-sm">We analyze your current infrastructure, understand your goals, and assess requirements thoroughly.</p>
+          </div>
+
+          <div class="glass glass-hover rounded-2xl p-7 text-center reveal relative" style="transition-delay:0.08s">
+            <div class="w-14 h-14 rounded-2xl bg-brand/20 border border-brand/30 flex items-center justify-center mx-auto mb-4 icon-glow">
+              <i data-lucide="drafting-compass" class="w-7 h-7 text-brand-light"></i>
+            </div>
+            <div class="text-4xl font-black text-brand/20 mb-2 font-display">02</div>
+            <h4 class="font-bold text-white mb-2">Design</h4>
+            <p class="text-slate-400 text-sm">Our engineers craft a detailed architecture blueprint — scalable, secure, and optimized for your needs.</p>
+          </div>
+
+          <div class="glass glass-hover rounded-2xl p-7 text-center reveal relative" style="transition-delay:0.16s">
+            <div class="w-14 h-14 rounded-2xl bg-brand/20 border border-brand/30 flex items-center justify-center mx-auto mb-4 icon-glow">
+              <i data-lucide="rocket" class="w-7 h-7 text-brand-light"></i>
+            </div>
+            <div class="text-4xl font-black text-brand/20 mb-2 font-display">03</div>
+            <h4 class="font-bold text-white mb-2">Deploy</h4>
+            <p class="text-slate-400 text-sm">Expert installation and configuration with minimal disruption to your existing operations.</p>
+          </div>
+
+          <div class="glass glass-hover rounded-2xl p-7 text-center reveal relative" style="transition-delay:0.24s">
+            <div class="w-14 h-14 rounded-2xl bg-gold/20 border border-gold/30 flex items-center justify-center mx-auto mb-4 icon-glow-gold">
+              <i data-lucide="activity" class="w-7 h-7 text-gold"></i>
+            </div>
+            <div class="text-4xl font-black text-gold/20 mb-2 font-display">04</div>
+            <h4 class="font-bold text-white mb-2">Manage</h4>
+            <p class="text-slate-400 text-sm">Ongoing monitoring, maintenance, and support to keep your infrastructure performing at its best.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+  ============================================================ -->
+  <section id="contact" class="py-24 lg:py-32" style="background: linear-gradient(180deg, #070f18 0%, #0d1b2a 100%);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-16 reveal">
+        <div class="badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold text-brand-light uppercase tracking-widest mb-4">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i> Get in Touch
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
+          Let's Build Your <span class="gradient-text">Infrastructure</span>
+        </h2>
+        <p class="text-slate-400 max-w-2xl mx-auto text-lg">
+          Ready to upgrade your IT environment? Contact us for a free consultation and customized quote.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Contact info -->
+        <div class="sm:col-span-2 lg:col-span-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+          <div class="glass rounded-2xl p-6 flex items-center gap-5 glass-hover">
+            <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center flex-shrink-0" style="box-shadow:0 0 16px rgba(34,197,94,0.25)">
+              <i data-lucide="message-circle" class="w-6 h-6 text-green-400"></i>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">WhatsApp / Phone</div>
+              <a href="https://wa.me/923230980043" target="_blank" class="text-white font-semibold hover:text-brand-light transition-colors">+92 323 0980043</a>
+            </div>
+          </div>
+
+          <div class="glass rounded-2xl p-6 flex items-center gap-5 glass-hover">
+            <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center flex-shrink-0 icon-glow">
+              <i data-lucide="mail" class="w-6 h-6 text-brand-light"></i>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Email</div>
+              <a href="mailto:infradev.pk@gmail.com" class="text-white font-semibold hover:text-brand-light transition-colors">infradev.pk@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="glass rounded-2xl p-6 flex items-center gap-5 glass-hover">
+            <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center flex-shrink-0 icon-glow">
+              <i data-lucide="globe" class="w-6 h-6 text-brand-light"></i>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Website</div>
+              <a href="https://infradev.pk" target="_blank" class="text-white font-semibold hover:text-brand-light transition-colors">infradev.pk</a>
+            </div>
+          </div>
+
+          <div class="glass rounded-2xl p-6 flex items-center gap-5 glass-hover">
+            <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center flex-shrink-0 icon-glow">
+              <i data-lucide="map-pin" class="w-6 h-6 text-brand-light"></i>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Location</div>
+              <span class="text-white font-semibold">Taxila, Punjab, Pakistan</span>
+            </div>
+          </div>
+
+          <!-- Social / availability badge -->
+          <div class="glass rounded-2xl p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+              <span class="text-green-400 text-sm font-semibold">Available for new projects</span>
+            </div>
+            <p class="text-slate-400 text-sm">We typically respond within <strong class="text-white">2–4 hours</strong> during business hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer style="background: #040b12; border-top: 1px solid rgba(30,111,200,0.12);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+        <!-- Brand col -->
+        <div class="lg:col-span-2">
+          <img src="data/logo.png" alt="InfraDev" class="h-12 w-auto mb-4" />
+          <p class="text-slate-500 text-sm leading-relaxed max-w-sm mb-6">
+            InfraDev provides complete IT infrastructure solutions — servers, networking, software development, automation, cybersecurity, cloud services, and power solutions for businesses across Pakistan.
+          </p>
+          <div class="flex items-center gap-3">
+            <a href="https://wa.me/923230980043" target="_blank"
+              class="w-9 h-9 rounded-lg bg-white/5 hover:bg-green-500/20 flex items-center justify-center text-slate-500 hover:text-green-400 transition-all border border-white/5 hover:border-green-500/30">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </a>
+            <a href="mailto:infradev.pk@gmail.com"
+              class="w-9 h-9 rounded-lg bg-white/5 hover:bg-brand/20 flex items-center justify-center text-slate-500 hover:text-brand-light transition-all border border-white/5 hover:border-brand/30">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </a>
+            <a href="https://infradev.pk" target="_blank"
+              class="w-9 h-9 rounded-lg bg-white/5 hover:bg-brand/20 flex items-center justify-center text-slate-500 hover:text-brand-light transition-all border border-white/5 hover:border-brand/30">
+              <i data-lucide="globe" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Services col -->
+        <div>
+          <h5 class="text-white font-semibold mb-4 text-sm uppercase tracking-widest">Services</h5>
+          <ul class="space-y-2.5">
+            <li><a href="#services" class="text-slate-500 hover:text-brand-light text-sm transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3"></i> IT Infrastructure</a></li>
+            <li><a href="#services" class="text-slate-500 hover:text-brand-light text-sm transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3"></i> Server Management</a></li>
+            <li><a href="#services" class="text-slate-500 hover:text-brand-light text-sm transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3"></i> Networking</a></li>
+            <li><a href="#services" class="text-slate-500 hover:text-brand-light text-sm transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3"></i> Cybersecurity</a></li>
+            <li><a href="#services" class="text-slate-500 hover:text-brand-light text-sm transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3"></i> Cloud Solutions</a></li>
+            <li><a href="#services" class="text-slate-500 hover:text-brand-light text-sm transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3"></i> UPS & Power</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact col -->
+        <div>
+          <h5 class="text-white font-semibold mb-4 text-sm uppercase tracking-widest">Contact</h5>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2.5 text-sm text-slate-500">
+              <i data-lucide="phone" class="w-4 h-4 text-brand/60 flex-shrink-0 mt-0.5"></i>
+              <a href="tel:+923230980043" class="hover:text-brand-light transition-colors">+92 323 0980043</a>
+            </li>
+            <li class="flex items-start gap-2.5 text-sm text-slate-500">
+              <i data-lucide="mail" class="w-4 h-4 text-brand/60 flex-shrink-0 mt-0.5"></i>
+              <a href="mailto:infradev.pk@gmail.com" class="hover:text-brand-light transition-colors break-all">infradev.pk@gmail.com</a>
+            </li>
+            <li class="flex items-start gap-2.5 text-sm text-slate-500">
+              <i data-lucide="globe" class="w-4 h-4 text-brand/60 flex-shrink-0 mt-0.5"></i>
+              <a href="https://infradev.pk" target="_blank" class="hover:text-brand-light transition-colors">infradev.pk</a>
+            </li>
+            <li class="flex items-start gap-2.5 text-sm text-slate-500">
+              <i data-lucide="map-pin" class="w-4 h-4 text-brand/60 flex-shrink-0 mt-0.5"></i>
+              <span>Taxila, Punjab, Pakistan</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-divider mb-8"></div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
+        <p>&copy; <span id="year"></span> InfraDev. All rights reserved.</p>
+        <p class="flex items-center gap-1">
+          <i data-lucide="map-pin" class="w-3 h-3"></i> Taxila, Pakistan &nbsp;|&nbsp;
+          <a href="mailto:infradev.pk@gmail.com" class="hover:text-brand-light transition-colors">infradev.pk@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       BACK TO TOP
+  ============================================================ -->
+  <button id="back-top" class="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-xl btn-primary flex items-center justify-center text-white opacity-0 pointer-events-none transition-all duration-300 shadow-lg" aria-label="Back to top">
+    <i data-lucide="chevron-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
+  <script>
+    /* ── Init Lucide icons ── */
+    lucide.createIcons();
+
+    /* ── Year ── */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ── Navbar scroll style ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        navbar.style.background = 'rgba(7,15,24,0.95)';
+        navbar.style.backdropFilter = 'blur(16px)';
+        navbar.style.borderBottom = '1px solid rgba(30,111,200,0.12)';
+      } else {
+        navbar.style.background = 'transparent';
+        navbar.style.backdropFilter = 'none';
+        navbar.style.borderBottom = '1px solid transparent';
+      }
+    });
+
+    /* ── Mobile menu ── */
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    let menuOpen = false;
+    menuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      menuIcon.setAttribute('data-lucide', menuOpen ? 'x' : 'menu');
+      lucide.createIcons();
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.classList.remove('open');
+        menuIcon.setAttribute('data-lucide', 'menu');
+        lucide.createIcons();
+      });
+    });
+
+    /* ── Scroll reveal ── */
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    /* ── Counter animation ── */
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = +el.dataset.target;
+        const dur = 1600;
+        const step = target / (dur / 16);
+        let current = 0;
+        const tick = () => {
+          current = Math.min(current + step, target);
+          el.textContent = Math.floor(current) + (target >= 100 ? '+' : '+');
+          if (current < target) requestAnimationFrame(tick);
+          else el.textContent = target + '+';
+        };
+        tick();
+        counterObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterObserver.observe(c));
+
+    /* ── Back to top ── */
+    const backTop = document.getElementById('back-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backTop.style.opacity = '1';
+        backTop.style.pointerEvents = 'auto';
+      } else {
+        backTop.style.opacity = '0';
+        backTop.style.pointerEvents = 'none';
+      }
+    });
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* ── Particle canvas ── */
+    (function () {
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+      let W, H, particles = [];
+
+      function resize() {
+        W = canvas.width = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+      }
+
+      function Particle() {
+        this.x = Math.random() * W;
+        this.y = Math.random() * H;
+        this.r = Math.random() * 1.5 + 0.3;
+        this.dx = (Math.random() - 0.5) * 0.4;
+        this.dy = (Math.random() - 0.5) * 0.4;
+        this.alpha = Math.random() * 0.4 + 0.1;
+      }
+
+      function init() {
+        resize();
+        particles = [];
+        for (let i = 0; i < 80; i++) particles.push(new Particle());
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(77,166,255,${p.alpha})`;
+          ctx.fill();
+          p.x += p.dx; p.y += p.dy;
+          if (p.x < 0 || p.x > W) p.dx *= -1;
+          if (p.y < 0 || p.y > H) p.dy *= -1;
+        });
+        // draw connecting lines
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(30,111,200,${0.12 * (1 - dist / 120)})`;
+              ctx.lineWidth = 0.5;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', init);
+      init();
+      draw();
+    })();
+
+    /* ── Active nav highlight on scroll ── */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(l => {
+        l.classList.remove('text-white');
+        if (l.getAttribute('href') === '#' + current) l.classList.add('text-white');
+      });
+    });
+  </script>
+</body>
+</html>
