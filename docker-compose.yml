@@ -6,14 +6,28 @@ services:
     container_name: infradev-website
     image: infradev/website:latest
     ports:
-      - "80:80"
+      - "${HTTP_PORT:-80}:3000"
+    environment:
+      # Used for document dates and numbers (INV-YYYYMMDDNN).
+      TZ: ${TZ:-Asia/Karachi}
+      # Only used the first time, when the admin user is created.
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-ChangeMe123!}
+      # Leave empty to auto-generate and persist one in the data volume.
+      SESSION_SECRET: ${SESSION_SECRET:-}
+    volumes:
+      # SQLite database + uploaded logo/favicon
+      - infradev-data:/app/storage
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost/"]
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
       interval: 30s
       timeout: 5s
       retries: 3
-      start_period: 10s
+      start_period: 30s
     labels:
-      - "com.infradev.description=InfraDev Static Website"
-      - "com.infradev.version=1.0"
+      - "com.infradev.description=InfraDev Website (Next.js)"
+      - "com.infradev.version=2.0"
+
+volumes:
+  infradev-data:

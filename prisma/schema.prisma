@@ -1,0 +1,54 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Setting {
+  key       String   @id
+  value     String   @default("")
+  updatedAt DateTime @updatedAt
+}
+
+// Quotations and invoices. Rows are never deleted (a SQL trigger enforces this);
+// use the status field (e.g. CANCELLED) instead.
+model Document {
+  id              Int            @id @default(autoincrement())
+  type            String // INVOICE | QUOTATION
+  number          String         @unique
+  date            String // YYYY-MM-DD
+  customerName    String
+  customerAddress String         @default("")
+  status          String         @default("DRAFT")
+  terms           String         @default("")
+  items           DocumentItem[]
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  @@index([type, date])
+}
+
+model DocumentItem {
+  id          Int      @id @default(autoincrement())
+  documentId  Int
+  position    Int
+  description String
+  unitPrice   Float
+  quantity    Float
+  document    Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  @@index([documentId])
+}
+
+model AdminUser {
+  id                 Int      @id @default(autoincrement())
+  username           String   @unique
+  passwordHash       String
+  mustChangePassword Boolean  @default(true)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}

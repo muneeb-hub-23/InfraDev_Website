@@ -1,0 +1,9 @@
+# robots.txt – InfraDev (https://infradev.pk)
+
+User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /api/
+Disallow: /.well-known/
+

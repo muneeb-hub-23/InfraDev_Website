@@ -1,0 +1,42 @@
+{
+  "settings": {
+    "companyName": "InfraDev",
+    "tagline": "Building Smarter. Connecting Futures.",
+    "heroBadge": "Complete IT Infrastructure Solutions",
+    "shortDescription": "InfraDev is your end-to-end technology partner — from servers and networking to cybersecurity, cloud, and smart automation. We design, deploy, and manage infrastructure that powers your business growth.",
+    "footerDescription": "InfraDev provides complete IT infrastructure solutions — servers, networking, software development, automation, cybersecurity, cloud services, and power solutions for businesses across Pakistan.",
+    "aboutText1": "InfraDev is a full-service IT Infrastructure Development company specializing in the design, deployment, and management of modern technology solutions for businesses, organizations, and smart environments.",
+    "aboutText2": "We provide end-to-end services covering servers, software development, networking, cybersecurity, automation, and power infrastructure — helping organizations build scalable, secure, and future-ready IT environments that improve productivity, connectivity, and business performance.",
+    "phone": "+92 323 0980043",
+    "whatsapp": "923230980043",
+    "email": "infradev.pk@gmail.com",
+    "website": "https://infradev.pk",
+    "address": "Taxila, Punjab, Pakistan",
+    "availabilityText": "Available for new projects",
+    "responseTime": "2–4 hours",
+    "statProjects": "150",
+    "statClients": "80",
+    "statUptime": "99.9%",
+    "statSupport": "24/7",
+    "statExperience": "5+ yrs",
+    "brandColor": "#1e6fc8",
+    "accentColor": "#c8922a",
+    "ntn": "I768285-0",
+    "docAddress": "Office # 81, Pakiza market, I-8 Pakiza market, Islamabad",
+    "docEmail": "infradev.pk@gmail.com",
+    "docPhone": "+923137037571",
+    "docRegards": "Muhammad Awais",
+    "docBankDetails": "Account Title: INFRADEV (INFRASTRUCTURE DEVELOPMENT)",
+    "docTerms": "Prices are Inclusive of all Taxes\nValidity: 7 days",
+    "invoicePrefix": "INV",
+    "quotationPrefix": "QTN",
+    "metaTitle": "InfraDev – Building Smarter. Connecting Futures.",
+    "metaDescription": "InfraDev – Complete IT Infrastructure Development. Servers, networking, software, cybersecurity, cloud, automation & power solutions. Taxila, Pakistan.",
+    "metaKeywords": "IT infrastructure, server installation, networking, cybersecurity, cloud solutions, software development, automation, UPS, data center, Pakistan"
+  },
+  "assets": {
+    "logo": { "source": "data/logo.png", "target": "logo-initial.png", "settingKey": "logo" },
+    "favicon": { "source": "data/favicon.ico", "target": "favicon-initial.ico", "settingKey": "favicon" },
+    "stamp": { "source": "data/stamp.png", "target": "stamp-initial.png", "settingKey": "stamp" }
+  }
+}
